@@ -22,8 +22,12 @@ def setup():
 def do_math():
     print("doing math")
     data = 0
+    # data2 = 1
 
     return data
+    # return data, data2
+
+# out_data, out_data2 = do_math()
 
 def end():
     print("cleaning up")
