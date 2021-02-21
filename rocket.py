@@ -5,6 +5,7 @@
 # import Raspberry Pi GPIO module
 import RPi.GPIO as GPIO
 import time
+import csv
 
 def setup():
 
@@ -18,10 +19,13 @@ def setup():
     GPIO.setup(accel, GPIO.IN)
     GPIO.setup(servo, GPIO.OUT)
 
-do_math():
+def do_math():
     print("doing math")
+    data = 0
 
-end():
+    return data
+
+def end():
     print("cleaning up")
 
 def main():
@@ -35,12 +39,22 @@ def main():
     if acceleration > 1 and not launched:
         launched = True
 
-    if launched:
+    flight_data = []
+    while launched:
         elapsed_time = time.time() - init_time
+        
         if elapsed_time > burnout_time:
+            launched = False
             end()
         else:
-            do_math()
+            data = do_math()
+        
+        flight_data.append((elapsed_time, data))
+
+    with open("data.csv", 'w') as f:
+        csvwriter = csv.writer(f)
+        for row in flight_data:
+            csvwriter.writerow(row)
 
 
 if __name__ == "__main__":
