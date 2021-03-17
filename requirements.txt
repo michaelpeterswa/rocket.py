@@ -1,2 +1,5 @@
+# pip install -r requirements.txt
 RPi.GPIO
 csv
+adafruit-circuitpython-mpu6050
+mpu6050-raspberrypi

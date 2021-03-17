@@ -2,6 +2,14 @@
 # rocket.py
 # 02.21.21
 
+# sudo apt-get update
+# sudo apt-get install python-smbus python3-smbus python-dev python3-dev i2c-tools
+# sudo i2cdetect -y 1
+
+# from mpu6050 import mpu6050
+# sensor = mpu6050(0x68)
+# accelerometer_data = sensor.get_accel_data()
+
 # import Raspberry Pi GPIO module
 import RPi.GPIO as GPIO
 import time
